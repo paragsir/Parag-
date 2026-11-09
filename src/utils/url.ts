@@ -12,6 +12,9 @@ export const getPublicBaseUrl = (): string => {
     if (origin.includes('ais-pre-')) {
       return origin;
     }
+    if (origin.includes('github.io')) {
+      return (window.location.origin + window.location.pathname).replace(/\/$/, '');
+    }
     // If on localhost or preview wrapper, return the live public cloud run URL
     return 'https://ais-pre-6px2mapdgzd4vihfdxrxih-238304612385.asia-northeast1.run.app';
   }
